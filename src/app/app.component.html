@@ -1,0 +1,57 @@
+<div>
+    <style>
+        * {
+            color: white;
+        }
+        nav {
+            box-shadow: 5px 5px 20px #000;
+        }
+    </style>
+    <nav class="navbar navbar-expand-lg navbar-dark  col-12 px-5 mb-5 fixed-top" style="background-color:brown;">
+        <a class="navbar-brand my-2 my-sm-1 mx-3 " href="#"> 
+          <img src="/assets/static/images/brand.png" width="30" height="30" class="d-inline-block align-top" alt="">
+          E-shop</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      
+        <div class="collapse navbar-collapse d-flex " id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto" style="flex-grow: 1;">
+            <li class="nav-item">
+                <a class="nav-link" style="color:white ;" routerLink="shop"><i class="fa fa-home" style="font-size:24px"></i>  Home</a>
+            </li>
+            <li *ngIf="!isTokenThere" class="nav-item" >
+              <a class="nav-link my-2 my-sm-1 mx-1"  style="color:white ;" routerLink="register">Register</a>
+            </li>
+            <li *ngIf="!isTokenThere" class="nav-item">
+                <a class="nav-link my-2 my-sm-1 mx-1" style="color:white ;" routerLink="login">Login</a>
+            </li>
+            <!-- <li *ngIf="isTokenThere" class="nav-item">
+                <a class="nav-link " style="color:white ;" routerLink="account"><i class="fa fa-user"></i><br>Account</a>
+            </li> -->
+            <li *ngIf="isTokenThere" class="nav-item">
+                <a class="nav-link my-2 my-sm-1 mx-3" style="color:white ;" routerLink="cart"><i class="fas fa-shopping-cart"></i>  Cart</a>
+            </li>
+          </ul>
+          <form class="form-inline my-2 my-lg-0 d-flex " (submit)="search()" >
+            <input 
+                class="form-control mr-sm-2 bg-white text-success" 
+                
+                type="search" 
+                placeholder="Search products" 
+                aria-label="Search"
+                [(ngModel)]="term"
+                name="term"
+            >
+            <button class="btn btn-outline-primary my-2 my-sm-0 mx-3" type="submit"><i class="fa fa-search"></i></button>
+          
+          </form>
+          <li *ngIf="isTokenThere" class="nav-item my-2 my-lg-0 d-flex">
+            <a class="nav-link   bg-secondary" style="color:white ;" routerLink="account" > <i class="fa fa-user"></i>    Account</a>
+        </li>
+          
+        </div>
+      </nav>
+    <router-outlet></router-outlet>
+    
+</div>
